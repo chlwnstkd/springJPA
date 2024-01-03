@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@SequenceGenerator(name = "TEAM_SEQ_GENERATOR", sequenceName = "TEAM_SEQ", initialValue = 1, allocationSize = 1)
 @Table(name = "NOTICE")
 @DynamicInsert
 @DynamicUpdate
@@ -18,7 +19,7 @@ import javax.persistence.*;
 public class NoticeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType. SEQUENCE, generator = "TEAM_SEQ_GENERATOR")
     @Column(name = "notice_seq")
     private Long noticeSeq;
 
